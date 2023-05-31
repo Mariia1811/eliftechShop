@@ -1,0 +1,33 @@
+@import-normalize;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+:root {
+  --sidebar-bg: rgb(129, 182, 218);
+  --header-bg:rgba(52, 152, 219,1.0);
+  --form-bg:rgb(129, 182, 218);
+  --basketShop-bg:rgb(129, 182, 218);
+  --shop-item-bg:rgba(52, 152, 219,1.0);
+  --mainShop-bg:rgb(129, 182, 218);
+  --accent: rgba(241, 196, 15,1.0);
+
+  --sidebar-link: "#13151a";
+  --header-title:"#111111";
+  --text-panel:"#111111";
+  --hover-btn:antiquewhite;
+  --thumba-bg:antiquewhite;
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+

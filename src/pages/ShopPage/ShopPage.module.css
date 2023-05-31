@@ -1,0 +1,4 @@
+.containerPage{
+    display: flex;
+    flex-direction: row;
+}
