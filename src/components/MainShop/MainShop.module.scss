@@ -1,31 +1,30 @@
-.containerMain{
+.containerMain {
   box-sizing: border-box;
   padding: 20px 15px;
-    background-color: var(--mainShop-bg);
-    height: calc(100vh - 60px);
-    width: calc(100vw - 170px);
+  background-color: var(--mainShop-bg);
+  height: calc(100vh - 60px);
+  width: calc(100vw - 170px);
 
-    @media screen and (min-width: 768px) {
-      width: calc(100vw - 289px);
-      padding: 20px 30px;
-    }
+  @media screen and (min-width: 768px) {
+    width: calc(100vw - 289px);
+    padding: 20px 30px;
+  }
 }
 
-.list{
+.list {
   padding: 20px 15px;
-    display: grid;
-    grid-template-columns: 1fr;
-grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 15px;
-    grid-row-gap: 15px;
-    padding-right: 15px;
-    height: 100%;
-    overflow-y: scroll;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  padding-right: 15px;
+  height: 100%;
+  overflow-y: scroll;
   scroll-behavior: smooth;
   box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
   border-radius: 10px;
 
- 
   @media screen and (min-width: 768px) {
     padding: 20px 30px;
     grid-template-columns: repeat(2, 1fr);
@@ -36,76 +35,74 @@ grid-template-rows: repeat(5, 1fr);
   }
 }
 .list::-webkit-scrollbar {
-    width: 10px;
-  }
+  width: 10px;
+}
 
 .list::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-  }
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
 .list::-webkit-scrollbar-thumb {
-    background: var(--thumba-bg);
-    border-radius: 10px;
+  background: var(--thumba-bg);
+  border-radius: 10px;
 }
-.item{ 
-    background-color: var(--shop-item-bg);
-    padding: 20px;
-    box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap:10px;
-    
+.item {
+  background-color: var(--shop-item-bg);
+  padding: 20px;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
-.image{
-    display: block;
-    width: 150px;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 10px;
-    
+.image {
+  display: block;
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 10px;
 }
-.description{
+.description {
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap: 10px;
 
   @media screen and (min-width: 768px) {
-    gap:15px;
+    gap: 15px;
   }
 }
-.title{
-text-transform: uppercase;
+.title {
+  text-transform: uppercase;
 }
 .price,
-.title{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    line-height: 1.18;
-    color: var(--text-panel);
-    text-align: right;
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 1.18;
+  color: var(--text-panel);
+  text-align: right;
 }
 
-.price span{
+.price span {
   font-weight: 400;
 }
-.btn{
-    display: block;
-    margin-left: auto;
-     box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5); 
-    border-radius: 10px;
-    padding: 8px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    line-height: 1.25;
-    color: var(--text-panel);
-    border:none;
-    outline: none;
-    cursor: pointer;
-    background-color: transparent;
+.btn {
+  display: block;
+  margin-left: auto;
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  padding: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  line-height: 1.25;
+  color: var(--text-panel);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
   transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   @media screen and (min-width: 768px) {
@@ -113,8 +110,8 @@ text-transform: uppercase;
     font-size: 16px;
     font-weight: 600;
   }
-
 }
-.btn:hover, .btn:focus {
-    background: var(--hover-btn);
-  }
+.btn:hover,
+.btn:focus {
+  background: var(--hover-btn);
+}

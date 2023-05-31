@@ -1,25 +1,29 @@
-import React from "react";
-import s from "./Form.module.scss";
+import React from 'react';
+import s from './Form.module.scss';
 function Form() {
   return (
     <div className={s.sectionForm}>
       <form className={s.formList}>
         <div className={s.overInput}>
-        <label  htmlFor={""} className={s.label}> Name: </label>
-        <input
-        id={""}
-          type="text"
-          placeholder="Name"
-          name=""
-          value=""
-          className={s.input}
-        />
-        </div>
-        
-        <div className={s.overInput}>
-          <label htmlFor={""} className={s.label}> Email: </label>
+          <label htmlFor={''} className={s.label}>
+            Name:{' '}
+          </label>
           <input
-          id={""}
+            id={''}
+            type="text"
+            placeholder="Name"
+            name=""
+            value=""
+            className={s.input}
+          />
+        </div>
+
+        <div className={s.overInput}>
+          <label htmlFor={''} className={s.label}>
+            Email:{' '}
+          </label>
+          <input
+            id={''}
             type="email"
             placeholder="Email"
             name=""
@@ -29,9 +33,12 @@ function Form() {
         </div>
 
         <div className={s.overInput}>
-          <label htmlFor={""} className={s.label}> Phone: </label>
+          <label htmlFor={''} className={s.label}>
+            {' '}
+            Phone:{' '}
+          </label>
           <input
-          id={""}
+            id={''}
             type="tel"
             placeholder="Phone"
             name=""
@@ -41,9 +48,12 @@ function Form() {
         </div>
 
         <div className={s.overInput}>
-          <label   htmlFor={""} className={s.label}> Address: </label>
+          <label htmlFor={''} className={s.label}>
+            {' '}
+            Address:{' '}
+          </label>
           <input
-           id={""}
+            id={''}
             type="url"
             placeholder="Address"
             name=""
