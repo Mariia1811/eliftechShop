@@ -4,7 +4,7 @@ import s from './Header.module.scss';
 function Header() {
   return (
     <div className={s.headerContainer}>
-      <nav>
+      <nav className={s.headerContainerNav}>
         <NavLink to="/shop" className={s.link}>
           Shop
         </NavLink>

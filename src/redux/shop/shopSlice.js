@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { getAllProducts, getProductsById, submitOrder } from './operation';
+import { toast } from 'react-toastify';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -30,7 +31,19 @@ const shopSlice = createSlice({
       .addCase(getAllProducts.pending, handlePending)
       .addCase(getAllProducts.rejected, handleRejected)
       .addCase(submitOrder.pending, handlePending)
-      .addCase(submitOrder.rejected, handleRejected)
+      .addCase(
+        submitOrder.rejected,
+        toast.error('Заповніть всі поля', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        })
+      )
       .addCase(getProductsById.pending, handlePending)
       .addCase(getProductsById.rejected, handleRejected)
       .addCase(getAllProducts.fulfilled, (state, { payload }) => {
@@ -44,7 +57,16 @@ const shopSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(submitOrder.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
+        toast.info('Змовлення прийнято!', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
       });
   },
 });

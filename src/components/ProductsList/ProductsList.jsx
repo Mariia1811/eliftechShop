@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-
+import { toast } from 'react-toastify';
 import { changeBasket } from 'redux/shop/shopSlice';
 
 import { baseUrl } from '../../conts/const.js';
@@ -21,6 +21,16 @@ function ProductsList({foodsList}) {
   function handleClick(id) {
     if (!arrBasketId.includes(id)) {
       setarrBasketId(pS => [...pS, id]);
+      toast.info('Товар додано!', {
+position: "top-right",
+autoClose: 5000,
+hideProgressBar: false,
+closeOnClick: true,
+pauseOnHover: true,
+draggable: true,
+progress: undefined,
+theme: "dark",
+});
     }
   }
 
