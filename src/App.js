@@ -1,5 +1,7 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
+import { getAllProducts } from 'redux/shop/operation';
+import { useDispatch } from 'react-redux';
 
 import Header from './components/Header/Header';
 
@@ -9,6 +11,11 @@ const ShoppingCartPage = lazy(() =>
 );
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllProducts());
+  }, [dispatch]);
   return (
     <>
       <Header />

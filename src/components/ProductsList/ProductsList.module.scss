@@ -1,16 +1,3 @@
-.containerMain {
-  box-sizing: border-box;
-  padding: 20px 15px;
-  background-color: var(--mainShop-bg);
-  height: calc(100vh - 60px);
-  width: calc(100vw - 170px);
-
-  @media screen and (min-width: 768px) {
-    width: calc(100vw - 289px);
-    padding: 20px 30px;
-  }
-}
-
 .list {
   padding: 20px 15px;
   display: grid;
