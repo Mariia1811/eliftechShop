@@ -4,7 +4,6 @@ import s from './ShoppingCartPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBasketId, getOrderFoodsList } from 'redux/shop/shopSelectot';
 import { getProductsById, submitOrder } from 'redux/shop/operation';
-import { toast } from 'react-toastify';
 
 const initialState = {
   name: '', 
