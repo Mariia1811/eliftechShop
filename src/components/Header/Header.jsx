@@ -1,18 +1,19 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
+
 import s from './Header.module.scss';
+
 function Header() {
   return (
-    <div className={s.headerContainer}>
+    <header className={s.headerContainer}>
       <nav className={s.headerContainerNav}>
         <NavLink to="/shop" className={s.link}>
           Shop
         </NavLink>
         <NavLink to="/shoppingCart" className={s.link}>
-          Shopping Cart
+          Cart
         </NavLink>
       </nav>
-    </div>
+    </header>
   );
 }
 

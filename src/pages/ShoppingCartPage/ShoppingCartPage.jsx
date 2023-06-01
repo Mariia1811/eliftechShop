@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
-import { baseUrl } from '../../conts/const';
-import s from './ShoppingCartPage.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { getBasketId, getOrderFoodsList } from 'redux/shop/shopSelectot';
 import { getProductsById, submitOrder } from 'redux/shop/operation';
 
+import { baseUrl } from '../../conts/const';
+
+import s from './ShoppingCartPage.module.scss';
+
 const initialState = {
-  name: '', 
+  name: '',
   email: '',
   phone: '',
   address: '',
@@ -27,7 +30,8 @@ const ShoppingCartPage = () => {
       basketIdList?.map(item => dispatch(getProductsById(item)));
     }
     setOrderFoodsList(orderFoodsListfromState);
-    const sumOrder = orderFoodsListfromState.reduce(
+
+    const sumOrder = orderFoodsListfromState?.reduce(
       (sum, item) => sum + item.price,
       0
     );
@@ -37,18 +41,16 @@ const ShoppingCartPage = () => {
   useEffect(() => {
     if (dataOrderforSubmit) {
       dispatch(submitOrder(dataOrderforSubmit));
-       
     }
-  
-}, [dataOrderforSubmit, dispatch]);
+  }, [dataOrderforSubmit, dispatch]);
 
   const handleChange = e => {
-  const { name, value } = e.target;
-  setDataOrder(pS => ({
-    ...pS,
-    [name]: value,
-  }));
-};
+    const { name, value } = e.target;
+    setDataOrder(pS => ({
+      ...pS,
+      [name]: value,
+    }));
+  };
 
   function handleChangeQuantity(id, e) {
     const updatedOrderFoodsList = orderFoodsList.map(item => {
@@ -62,22 +64,26 @@ const ShoppingCartPage = () => {
     });
 
     setOrderFoodsList(updatedOrderFoodsList);
-   
-  const newTotalSum = updatedOrderFoodsList.reduce((sum, item) => {
-    return sum + item.price * item.quantity;
-  }, 0);
 
-  settotalSum(newTotalSum);
+    const newTotalSum = updatedOrderFoodsList.reduce((sum, item) => {
+      const quantity = item.quantity || 1;
+      return sum + item.price * quantity;
+    }, 0);
+
+    settotalSum(newTotalSum);
   }
 
   function handleSubmit() {
-    setDataOrderforSubmit({ ...dataOrder, order: [...orderFoodsList], total: totalSum })
-     
+    setDataOrderforSubmit({
+      ...dataOrder,
+      order: [...orderFoodsList],
+      total: totalSum,
+    });
   }
 
   if (orderFoodsList)
     return (
-      <div className={s.containerPage}>
+      <section className={s.containerPage}>
         <div className={s.sectionForm}>
           <form className={s.formList}>
             <div className={s.overInput}>
@@ -166,9 +172,7 @@ const ShoppingCartPage = () => {
                           orderFoodsList.find(item => item._id === food._id)
                             ?.quantity || '1'
                         }
-                        onChange={e =>
-                          handleChangeQuantity(food._id, e)
-                        }
+                        onChange={e => handleChangeQuantity(food._id, e)}
                         className={s.input}
                       />
                     </div>
@@ -180,12 +184,12 @@ const ShoppingCartPage = () => {
                 Total price: <span>{totalSum}</span>
               </p>
               <button className={s.btn} onClick={handleSubmit}>
-                Submit
+                Make an Order
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     );
 };
 

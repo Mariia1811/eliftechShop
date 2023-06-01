@@ -1,6 +1,10 @@
 .headerContainer {
-  padding: 20px 30px;
+  padding: 20px;
   background-color: var(--header-bg);
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.4);
+  @media screen and (min-width: 768px) {
+    padding: 40px 80px;
+  }
 }
 .headerContainerNav {
   display: flex;
@@ -21,11 +25,11 @@
 .link:not(:last-child) {
   margin-right: 20px;
 }
-/* .link:active {
-  color: var(--accent);
-} */
 
 .link:hover,
 .link.active {
-  color: var(--hover-btn);
+  color: white;
+}
+.active {
+  color: white;
 }

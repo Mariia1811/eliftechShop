@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://shopfoodsukraine.onrender.com';
 
@@ -35,6 +36,16 @@ export const submitOrder = createAsyncThunk(
       console.log(data);
       return data;
     } catch (error) {
+        toast.error('Заповніть всі поля', {
+          position: 'top-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
       return thunkAPI.rejectWithValue(error.message);
     }
   }

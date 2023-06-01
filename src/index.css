@@ -1,19 +1,18 @@
-@import-normalize;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
 :root {
-  --sidebar-bg: rgba(52, 152, 219, 1.0);
-  --header-bg:rgb(17, 131, 207);
-  --form-bg:rgba(52, 152, 219, 1.0);
-  --basketShop-bg:;
-  --shop-item-bg:rgb(129, 182, 218);
-  --mainShop-bg:rgba(52, 152, 219, 1.0);
+  --sidebar-bg: #dcdde1;
+  --header-bg:#ffa502;
+  --form-bg:#dcdde1;;
+  --basketShop-bg:#dcdde1;;
+  --shop-item-bg:#dcdde1;
+  --mainShop-bg:#dcdde1;;
   --accent: rgba(241, 196, 15,1.0);
 
   --sidebar-link: "#13151a";
   --header-title:"#111111";
   --text-panel:"#111111";
-  --hover-btn:#f1c40f;
+  --hover-btn:#f6d44b;;
   --thumba-bg:#f1c40f;
 }
 

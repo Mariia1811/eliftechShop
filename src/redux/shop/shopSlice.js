@@ -28,14 +28,11 @@ const shopSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(getAllProducts.pending, handlePending)
-      .addCase(getAllProducts.rejected, handleRejected)
-      .addCase(submitOrder.pending, handlePending)
       .addCase(
-        submitOrder.rejected,
-        toast.error('Заповніть всі поля', {
-          position: 'top-right',
-          autoClose: 5000,
+        getAllProducts.pending,
+        toast('🦄 Hello!', {
+          position: 'top-center',
+          autoClose: 300,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -44,6 +41,9 @@ const shopSlice = createSlice({
           theme: 'dark',
         })
       )
+      .addCase(getAllProducts.rejected, handleRejected)
+      .addCase(submitOrder.pending, handlePending)
+      .addCase(submitOrder.rejected, handleRejected)
       .addCase(getProductsById.pending, handlePending)
       .addCase(getProductsById.rejected, handleRejected)
       .addCase(getAllProducts.fulfilled, (state, { payload }) => {
@@ -57,8 +57,8 @@ const shopSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(submitOrder.fulfilled, (state, { payload }) => {
-        toast.info('Змовлення прийнято!', {
-          position: 'top-right',
+        toast.success('Order Accepted! Please wait for a call', {
+          position: 'top-center',
           autoClose: 5000,
           hideProgressBar: false,
           closeOnClick: true,
