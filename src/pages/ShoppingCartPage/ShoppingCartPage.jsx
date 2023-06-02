@@ -22,7 +22,7 @@ const ShoppingCartPage = () => {
   const [dataOrder, setDataOrder] = useState(initialState);
   const [dataOrderforSubmit, setDataOrderforSubmit] = useState(null);
   const [orderFoodsList, setOrderFoodsList] = useState(orderFoodsListfromState);
-  const [totalSum, settotalSum] = useState(0);
+  const [totalSum, setTotalSum] = useState(0);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -35,14 +35,42 @@ const ShoppingCartPage = () => {
       (sum, item) => sum + item.price,
       0
     );
-    settotalSum(sumOrder);
+    setTotalSum(sumOrder);
   }, [basketIdList, orderFoodsListfromState, dispatch]);
+
+  useEffect(() => {
+    const savedDataOrder = localStorage.getItem('dataOrder');
+    const savedOrderFoodsList = localStorage.getItem('orderFoodsList');
+    const savedTotalSum = localStorage.getItem('totalSum');
+
+    if (savedDataOrder) {
+      setDataOrder(JSON.parse(savedDataOrder));
+    }
+    if (savedOrderFoodsList) {
+      setOrderFoodsList(JSON.parse(savedOrderFoodsList));
+    }
+    if (savedTotalSum) {
+      setTotalSum(JSON.parse(savedTotalSum));
+    }
+  }, []);
 
   useEffect(() => {
     if (dataOrderforSubmit) {
       dispatch(submitOrder(dataOrderforSubmit));
     }
   }, [dataOrderforSubmit, dispatch]);
+
+    useEffect(() => {
+    localStorage.setItem('dataOrder', JSON.stringify(dataOrder));
+  }, [dataOrder]);
+
+  useEffect(() => {
+    localStorage.setItem('orderFoodsList', JSON.stringify(orderFoodsList));
+  }, [orderFoodsList]);
+
+  useEffect(() => {
+    localStorage.setItem('totalSum', JSON.stringify(totalSum));
+  }, [totalSum]);
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -70,8 +98,20 @@ const ShoppingCartPage = () => {
       return sum + item.price * quantity;
     }, 0);
 
-    settotalSum(newTotalSum);
+    setTotalSum(newTotalSum);
   }
+
+  function handleDelete(id) {
+  const updatedOrderFoodsList = orderFoodsList.filter(item => item._id !== id);
+  setOrderFoodsList(updatedOrderFoodsList);
+
+  const newTotalSum = updatedOrderFoodsList.reduce((sum, item) => {
+    const quantity = item.quantity || 1;
+    return sum + item.price * quantity;
+  }, 0);
+
+  setTotalSum(newTotalSum);
+}
 
   function handleSubmit() {
     setDataOrderforSubmit({
@@ -79,6 +119,11 @@ const ShoppingCartPage = () => {
       order: [...orderFoodsList],
       total: totalSum,
     });
+    setDataOrder(initialState);
+
+      localStorage.removeItem('dataOrder');
+    localStorage.removeItem('orderFoodsList');
+    localStorage.removeItem('totalSum');
   }
 
   if (orderFoodsList)
@@ -176,6 +221,7 @@ const ShoppingCartPage = () => {
                         className={s.input}
                       />
                     </div>
+                     <button className={s.dltBtn} onClick={() => handleDelete(food._id)}>X</button>
                   </li>
                 ))}
             </ul>
