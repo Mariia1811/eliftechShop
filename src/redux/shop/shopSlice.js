@@ -28,19 +28,7 @@ const shopSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(
-        getAllProducts.pending,
-        toast('🦄 Hello!', {
-          position: 'top-center',
-          autoClose: 300,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'dark',
-        })
-      )
+      .addCase(getAllProducts.pending, handlePending)
       .addCase(getAllProducts.rejected, handleRejected)
       .addCase(submitOrder.pending, handlePending)
       .addCase(submitOrder.rejected, handleRejected)

@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { store } from './redux/store';
 
-
 import App from './App';
 
 import { ToastContainer } from 'react-toastify';
@@ -13,9 +12,9 @@ import './index.css';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-      <BrowserRouter basename="/">
-        <App />
-        <ToastContainer />
-      </BrowserRouter>
+    <BrowserRouter basename="/eliftechShop">
+      <App />
+      <ToastContainer />
+    </BrowserRouter>
   </Provider>
 );

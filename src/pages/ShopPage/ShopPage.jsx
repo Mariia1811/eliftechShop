@@ -1,13 +1,20 @@
-import { Outlet, useNavigate,  } from 'react-router-dom';
+import { Outlet, useNavigate, useParams,  } from 'react-router-dom';
 
 import s from './ShopPage.module.scss';
+import { useEffect } from 'react';
 
 
 function ShopPage() {
   const navigate = useNavigate();
+    const { shopName } = useParams();
+  
+  useEffect(() => {
+  if(!shopName){navigate(`/all`)}
+
+  }, [shopName, navigate])
 
   const handleFilter = (shopName) => {
-    navigate(`shop/${shopName}`);
+    navigate(`/${shopName}`);
   };
 
   return (
