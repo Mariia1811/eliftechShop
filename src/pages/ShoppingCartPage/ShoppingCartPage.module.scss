@@ -5,7 +5,7 @@
 .sectionForm {
   box-sizing: border-box;
   padding: 20px 15px;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 120px);
   background-color: var(--form-bg);
   width: 35%;
 
@@ -51,7 +51,7 @@
 }
 .sectionBasket {
   box-sizing: border-box;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 120px);
   padding: 20px 15px;
   background-color: var(--basketShop-bg);
   width: 65%;
