@@ -6,7 +6,7 @@
   box-sizing: border-box;
   padding: 20px 15px;
   background-color: var(--mainShop-bg);
-  height: calc(100vh - 60px);
+  height: calc(100vh - 120px);
   width: calc(100vw - 170px);
 
   @media screen and (min-width: 768px) {
@@ -17,7 +17,7 @@
 .sectionSidebar {
   box-sizing: border-box;
   padding: 20px 15px;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 120px);
   max-width: 170px;
   width: 100%;
   background-color: var(--sidebar-bg);
